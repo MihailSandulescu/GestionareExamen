@@ -1,6 +1,5 @@
 package com.mihais.Admitere.Models;
 
-import com.mihais.Admitere.Models.Locatie.Location;
 import com.mihais.Admitere.Models.Persoane.Profesor;
 
 import java.time.LocalDate;

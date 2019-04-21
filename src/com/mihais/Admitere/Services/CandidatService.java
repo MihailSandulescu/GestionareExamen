@@ -23,6 +23,8 @@ public class CandidatService {
         candidati.add(cnd);
     }
 
+    public void removeCandidat(Candidat cnd){ candidati.remove(cnd);}
+
     public Candidat getCandidatByCNP(String CNP){
         for( Candidat c : candidati){
             if(c.getCNP().equals(CNP)){

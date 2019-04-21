@@ -22,6 +22,8 @@ public class FacultateService {
         facultati.add(facultate);
     }
 
+    public void removeFacultate(Facultate fac){ facultati.remove(fac);  }
+
     public Facultate getFacultateByNume(String nume){
         for( Facultate f : facultati){
             if(f.getNume().equals(nume)){
