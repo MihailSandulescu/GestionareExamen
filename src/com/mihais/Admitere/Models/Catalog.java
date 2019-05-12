@@ -6,29 +6,29 @@ import java.util.Objects;
 
 public class Catalog {
 
-    private Candidat candidat;
-    private HashMap<Examen , Nota> rezultate;
+    private Examen examen;
+    private HashMap<Candidat , Nota> rezultate;
 
     public Catalog(){}
 
-    public Catalog(Candidat c, HashMap<Examen , Nota> r){
-        this.candidat = c;
+    public Catalog(Examen e, HashMap<Candidat , Nota> r){
+        this.examen = e;
         this.rezultate = r;
     }
 
-    public Candidat getCandidat() {
-        return candidat;
+    public Examen getExamen() {
+        return examen;
     }
 
-    public void setCandidat(Candidat candidat) {
-        this.candidat = candidat;
+    public void setExamen(Examen exam) {
+        this.examen = exam;
     }
 
-    public HashMap<Examen, Nota> getRezultate() {
+    public HashMap<Candidat, Nota> getRezultate() {
         return rezultate;
     }
 
-    public void setRezultate(HashMap<Examen, Nota> rezultate) {
+    public void setRezultate(HashMap<Candidat, Nota> rezultate) {
         this.rezultate = rezultate;
     }
 
@@ -37,13 +37,13 @@ public class Catalog {
         if (this == o) return true;
         if (!(o instanceof Catalog)) return false;
         Catalog catalog = (Catalog) o;
-        return Objects.equals(getCandidat(), catalog.getCandidat());
+        return Objects.equals(getExamen(), catalog.getExamen());
     }
 
     @Override
     public int hashCode() {
         int rezultat = 17;
-        rezultat *= 31 + this.candidat.hashCode();
+        rezultat *= 31 + this.examen.hashCode();
         return rezultat;
     }
 

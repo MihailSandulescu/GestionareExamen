@@ -2,7 +2,7 @@ package com.mihais.Admitere.Models.Locatie;
 
 import java.util.Objects;
 
-public abstract class Location {
+public class Location {
 
     protected int id;
     protected int etaj;

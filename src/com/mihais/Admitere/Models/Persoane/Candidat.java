@@ -48,4 +48,14 @@ public class Candidat extends Persoana {
         rezultat *= 31 + this.oras.hashCode();
         return rezultat;
     }
+
+    @Override
+    public String toString() {
+        return "Candidat{" +
+                ", nume='" + nume + '\'' +
+                ", CNP='" + CNP + '\'' +
+                "candidatID=" + candidatID +
+                ", oras='" + oras + '\'' +
+                '}';
+    }
 }

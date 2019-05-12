@@ -28,75 +28,73 @@ public class CatalogService {
         catalog.remove(c);
     }
 
-    public void addOnlyCandidat(Candidat c) {
+    public void addOnlyExamen(Examen e) {
 
         boolean verify = false;
 
         for (Catalog x : catalog){
-            if(x.equals(new Catalog(c, null))){
+            if(x.equals(new Catalog(e, null))){
                 verify = true;
                 break;
             }
         }
 
-        if(verify){
-            catalog.add(new Catalog(c, null));
+        if(!verify){
+            catalog.add(new Catalog(e, null));
         }
     }
 
-    public void addNota(Candidat c, Examen e, Nota n){
+    public void addNota(Examen e, Candidat c, Nota n){
 
         for(Catalog x : catalog){
-            if(x.getCandidat().equals(c)){
-                x.getRezultate().put(e, n);
+            if(x.getExamen().equals(e)){
+                x.getRezultate().put(c, n);
                 break;
             }
         }
     }
 
-    public void addToateNotele(Candidat c, HashMap <Examen, Nota> m){
+    public void addToateNotele(Examen e, HashMap <Candidat, Nota> m){
 
         for(Catalog x : catalog){
-            if(x.getCandidat().equals(c)){
+            if(x.getExamen().equals(e)){
                 x.setRezultate(m);
                 break;
             }
         }
     }
 
-    public void updateNota(Candidat c, Examen e, Nota newNota){
+    public void updateNota(Examen e, Candidat c, Nota newNota){
 
         for(Catalog x : catalog){
-            if(x.getCandidat().equals(c)){
-                x.getRezultate().put(e, newNota);
+            if(x.getExamen().equals(e)){
+                x.getRezultate().put(c, newNota);
                 break;
             }
         }
     }
 
-    public void removeNota(Candidat c, Examen e){
+    public void removeNota(Examen e, Candidat c){
 
         for(Catalog x : catalog){
-            if(x.getCandidat().equals(c)){
-                x.getRezultate().remove(e);
+            if(x.getExamen().equals(e)){
+                x.getRezultate().remove(c);
                 break;
             }
         }
     }
 
     public void removeNotaForAll(Examen e){
-        catalog.forEach(x -> {x.getRezultate().remove(e);});
+        catalog.forEach(x -> {if(x.getExamen().equals(e)){ catalog.remove(x); }});
     }
 
     public void removeCandidat(Candidat cdt){
 
         for(Catalog c : catalog){
-            if(c.getCandidat().equals(cdt)){
-                catalog.remove(c);
-                break;
+            if(c.getRezultate().containsKey(cdt)){
+                c.getRezultate().remove(cdt);
             }
         }
-
     }
     
 }

@@ -4,19 +4,18 @@ import com.mihais.Admitere.Models.Persoane.Profesor;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Objects;
 
 public class Examen {
 
     private Profesor profSupraveghetor;
     private Materie disciplina;
-    private LocalTime ora;
-    private LocalDate data;
-    private LocalTime durata;
+    private String ora;
+    private String data;
+    private String durata;
 
     public Examen(){}
 
-    public Examen(Profesor profSupraveghetor, Materie disciplina, LocalTime ora, LocalDate data, LocalTime durata){
+    public Examen(Profesor profSupraveghetor, Materie disciplina, String ora, String data, String durata){
         this.profSupraveghetor = profSupraveghetor;
         this.disciplina = disciplina;
         this.ora = ora;
@@ -40,27 +39,27 @@ public class Examen {
         this.disciplina = disciplina;
     }
 
-    public LocalTime getOra() {
+    public String getOra() {
         return ora;
     }
 
-    public void setOra(LocalTime ora) {
+    public void setOra(String ora) {
         this.ora = ora;
     }
 
-    public LocalDate getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(String data) {
         this.data = data;
     }
 
-    public LocalTime getDurata() {
+    public String getDurata() {
         return durata;
     }
 
-    public void setDurata(LocalTime durata) {
+    public void setDurata(String durata) {
         this.durata = durata;
     }
 
@@ -85,7 +84,7 @@ public class Examen {
     public String toString() {
         return "Examen{" +
                 "disciplina=" + disciplina.getNume() +
-                ", data=" + data.toString() +
+                ", data=" + data +
                 '}';
     }
 }

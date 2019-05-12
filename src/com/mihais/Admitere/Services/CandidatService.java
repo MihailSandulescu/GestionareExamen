@@ -4,7 +4,6 @@ import com.mihais.Admitere.Comparators.CandidatCNPComparator;
 import com.mihais.Admitere.Models.Persoane.Candidat;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class CandidatService {
