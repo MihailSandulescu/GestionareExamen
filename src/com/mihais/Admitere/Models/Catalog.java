@@ -2,7 +2,9 @@ package com.mihais.Admitere.Models;
 
 import com.mihais.Admitere.Models.Persoane.Candidat;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Objects;
+import java.lang.StringBuffer;
 
 public class Catalog {
 
@@ -47,4 +49,17 @@ public class Catalog {
         return rezultat;
     }
 
+    @Override
+    public String toString() {
+        StringBuffer str =  new StringBuffer();
+        str.append("Examen: " + examen.getDisciplina().getNume() + "\n| ");
+        Iterator<Candidat> it = rezultate.keySet().iterator();
+        while(it.hasNext()){
+            Candidat key = it.next();
+            Nota value = rezultate.get(key);
+            str.append(key.getNume() + " , " + value.getValue() + " | ");
+        }
+        return str.toString();
+
+    }
 }

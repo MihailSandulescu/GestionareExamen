@@ -1,11 +1,13 @@
 package com.mihais.Admitere;
 
+import com.mihais.Admitere.Models.Catalog;
 import com.mihais.Admitere.Models.Examen;
 import com.mihais.Admitere.Models.Materie;
 import com.mihais.Admitere.Models.Nota;
 import com.mihais.Admitere.Models.Persoane.Candidat;
 import com.mihais.Admitere.Models.Persoane.Profesor;
 import com.mihais.Admitere.Services.CandidatService;
+import com.mihais.Admitere.Services.CatalogService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,5 +70,32 @@ public class Main {
         }
 
         //operatii cu catalogul
+        CatalogService catalogService = CatalogService.getInstance();
+
+        catalogService.addOnlyExamen(examAnaliza);
+        catalogService.addOnlyExamen(examAlgebra);
+        catalogService.addOnlyExamen(examStructuriDate);
+
+        catalogService.addNota(examAnaliza, candidat1, sapte);
+        catalogService.addNota(examAnaliza, candidat2, opt);
+        catalogService.addNota(examAlgebra, candidat3, cinci);
+        catalogService.addNota(examStructuriDate, candidat1, noua);
+        catalogService.addNota(examStructuriDate, candidat2, zece);
+        catalogService.addNota(examStructuriDate, candidat3, opt);
+
+        for(Catalog c : catalogService.getCatalog()){
+            System.out.println(c.toString());
+        }
+
+        catalogService.removeCandidat(candidat1);
+        catalogService.removeNota(examStructuriDate, candidat2);
+
+
+        for(Catalog c : catalogService.getCatalog()){
+            System.out.println(c.toString());
+        }
+
+
+
     }
 }

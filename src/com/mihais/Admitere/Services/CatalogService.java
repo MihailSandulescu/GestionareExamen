@@ -6,7 +6,6 @@ import com.mihais.Admitere.Models.Nota;
 import com.mihais.Admitere.Models.Persoane.Candidat;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 
 public class CatalogService {
 
@@ -31,16 +30,17 @@ public class CatalogService {
     public void addOnlyExamen(Examen e) {
 
         boolean verify = false;
+        HashMap<Candidat, Nota> initHM = new HashMap<>();
 
         for (Catalog x : catalog){
-            if(x.equals(new Catalog(e, null))){
+            if(x.equals(new Catalog(e, initHM))){
                 verify = true;
                 break;
             }
         }
 
         if(!verify){
-            catalog.add(new Catalog(e, null));
+            catalog.add(new Catalog(e, initHM));
         }
     }
 
@@ -95,6 +95,10 @@ public class CatalogService {
                 c.getRezultate().remove(cdt);
             }
         }
+    }
+
+    public HashSet<Catalog> getCatalog(){
+        return catalog;
     }
     
 }
