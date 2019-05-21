@@ -1,6 +1,8 @@
 package com.mihais.Admitere.Models;
 
-public class Nota implements Comparable<Nota>{
+import java.io.Serializable;
+
+public class Nota implements Comparable<Nota> , Serializable {
 
     private double value;
 

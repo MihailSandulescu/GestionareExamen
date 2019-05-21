@@ -52,10 +52,10 @@ public class Candidat extends Persoana {
     @Override
     public String toString() {
         return "Candidat{" +
-                ", nume='" + nume + '\'' +
-                ", CNP='" + CNP + '\'' +
-                "candidatID=" + candidatID +
-                ", oras='" + oras + '\'' +
+                "nume = '" + nume + '\'' +
+                ", CNP = '" + CNP + '\'' +
+                ", candidatID = " + candidatID +
+                ", oras = '" + oras + '\'' +
                 '}';
     }
 }

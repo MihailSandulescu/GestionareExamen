@@ -1,6 +1,8 @@
 package com.mihais.Admitere.Models.Persoane;
 
-public abstract class Persoana{
+import java.io.Serializable;
+
+public abstract class Persoana implements Serializable {
 
     protected String nume;
     protected int varsta;

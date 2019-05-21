@@ -1,6 +1,8 @@
 package com.mihais.Admitere.Models;
 
-    public class Materie {
+import java.io.Serializable;
+
+public class Materie implements Serializable {
 
     private String nume;
 

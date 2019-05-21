@@ -1,6 +1,8 @@
 package com.mihais.Admitere.Models;
 
 import com.mihais.Admitere.Models.Persoane.Candidat;
+
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Objects;

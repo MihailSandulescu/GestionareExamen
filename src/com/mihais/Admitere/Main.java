@@ -6,6 +6,7 @@ import com.mihais.Admitere.Models.Materie;
 import com.mihais.Admitere.Models.Nota;
 import com.mihais.Admitere.Models.Persoane.Candidat;
 import com.mihais.Admitere.Models.Persoane.Profesor;
+import com.mihais.Admitere.Services.CandidatFileService;
 import com.mihais.Admitere.Services.CandidatService;
 import com.mihais.Admitere.Services.CatalogService;
 
@@ -34,6 +35,7 @@ public class Main {
                                                 "calexandrescu@gmail.com",
                                                     500,
                                                      "Bucuresti");
+        Candidat candidat4 = new Candidat();
 
         Materie analiza = new Materie("Analiza");
         Materie algebra = new Materie("Algebra");
@@ -52,6 +54,12 @@ public class Main {
         Nota opt = new Nota(8);
         Nota noua = new Nota(9);
         Nota zece = new Nota(10);
+
+        //citire - scriere candidat in fisier (Etapa II)
+        CandidatFileService fisierServiceCandidati = CandidatFileService.getInstance();
+        fisierServiceCandidati.writeCandidatToFile(candidat1, "candidat.csv");
+        candidat4 = fisierServiceCandidati.readCandidatFromFile("candidat.csv");
+        System.out.println(candidat4.toString());
 
         //operatii cu candidati
         CandidatService candidatService = CandidatService.getInstance();
@@ -94,8 +102,6 @@ public class Main {
         for(Catalog c : catalogService.getCatalog()){
             System.out.println(c.toString());
         }
-
-
 
     }
 }

@@ -1,8 +1,9 @@
 package com.mihais.Admitere.Models;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Facultate {
+public class Facultate implements Serializable {
 
     private int numarTotalLocuri;
     private int numarLocuriBuget;
