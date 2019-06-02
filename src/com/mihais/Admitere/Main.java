@@ -6,9 +6,7 @@ import com.mihais.Admitere.Models.Materie;
 import com.mihais.Admitere.Models.Nota;
 import com.mihais.Admitere.Models.Persoane.Candidat;
 import com.mihais.Admitere.Models.Persoane.Profesor;
-import com.mihais.Admitere.Services.CandidatFileService;
-import com.mihais.Admitere.Services.CandidatService;
-import com.mihais.Admitere.Services.CatalogService;
+import com.mihais.Admitere.Services.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +14,8 @@ import java.util.List;
 public class Main {
 
     public static void main(String [] args){
+
+        AuditLogService.getInstance().writeLogLine("Hello World! main method :)");
 
         Candidat candidat1 = new Candidat("Alex Ion",
                                             18,
@@ -102,6 +102,17 @@ public class Main {
         for(Catalog c : catalogService.getCatalog()){
             System.out.println(c.toString());
         }
+
+
+        //etapa 3
+        FacultateService facultateService = FacultateService.getInstance();
+
+        //citim datele din baza de date
+        candidatService.readFromDatabase();
+        facultateService.readFromDatabase();
+
+        candidatService.readDataFromFile();
+        candidatService.writeDataToFile();
 
     }
 }

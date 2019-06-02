@@ -52,4 +52,9 @@ public class FacultateService {
         facultatiSortate.sort(new FacultateInscrieriComparator());
         return facultatiSortate;
     }
+
+    public void readFromDatabase() {
+        DatabaseService databaseService = DatabaseService.getInstance();
+        facultati = databaseService.getToateFacultatile();
+    }
 }
